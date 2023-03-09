@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.leaflet-container {
+  height: 400px; /* example */
+  width: 400px; /* example */
+}

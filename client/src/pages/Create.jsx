@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { createOneItemService } from "../services/item.services";
+import axios from "axios";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
@@ -27,7 +27,10 @@ function Create() {
     };
 
     try {
-      await createOneItemService(newItem);
+
+      await axios.post("http://localhost:5005/api/item", newItem);
+      // !IMPORTANT: Adapt the request structure to the one in your project (services, .env, auth, etc...)
+
       navigate("/item/list");
     } catch (error) {
       navigate("/error");
